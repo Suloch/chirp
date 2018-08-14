@@ -7,6 +7,7 @@ Use the makefile to compile the source
 ```
 make clean
 ```
+```
 make
 ```
 
