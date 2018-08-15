@@ -21,3 +21,6 @@ To the run the interpreter with filename
 ```
 ./chirp filename
 ```
+
+## Screenshot
+![Screenshot](1.png?raw=true "Working")
