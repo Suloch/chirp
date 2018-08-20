@@ -42,24 +42,27 @@ Block :                                                                         
       ;
 
 Statement : Assignment                                                          {$$ = $1;}
+          | CONTINUE                                                            {$$ = makeContinue();}
+          | BREAK                                                               {$$ = makeBreak();}
           | SCAN Identifier                                                     {$$ = makeScan($2);}
           | PRINT Expression                                                    {$$ = makePrint($2);}
-          | IF ConditionalExpression NL Block                                              {$$ = makeIfStatement($2, $4);}
-          | IF ConditionalExpression NL Block ELSE NL Block                                {$$ = makeIfElseStatement($2, $4, $7);}
-          | WHILE ConditionalExpression NL Block                                           {$$ = makeWhileStatement($2, $4);}
+          | IF ConditionalExpression NL Block                                   {$$ = makeIfStatement($2, $4);}
+          | IF ConditionalExpression NL Block ELSE NL Block                     {$$ = makeIfElseStatement($2, $4, $7);}
+          | WHILE ConditionalExpression NL Block                                {$$ = makeWhileStatement($2, $4);}
           | FunctionDefiniton                                                   {$$ = $1;}
           | QUIT                                                                {printf("Mata ne~ 0/\n");exit(EXIT_SUCCESS);}
           ;
+
 FunctionDefiniton : Identifier TAKES List NL Block  GIVE BACK Expression        {$$ = makeFunctionDefinition($1, $3, $5, $8);}
                   ;
+
 List : Identifier AND List                                                      {$$ = makeAddItemToList($3, $1);}
      | Identifier                                                               {$$ = makeAddItemToList(NULL, $1);}
      ;
+
 Assignment : PUT Expression INTO Identifier                                     {$$ = makeAssignment($2, $4);}
            | BUILD Identifier UP                                                {$$ = makeIncrement($2);}
            | KNOCK Identifier DOWN                                              {$$ = makeDecrement($2);}
-           | CONTINUE                                                           {$$ = makeContinue();}
-           | BREAK                                                              {$$ = makeBreak();}
            | Identifier ASSIGN POETIC_LITERAL                                   {char * s =  concat("", $3); double num = numberPoetic(s); free(s); $$ = makeAssignmentPoetic($1, num);}
            ;
 
