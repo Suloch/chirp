@@ -76,5 +76,18 @@ symbol * evalaute(symbol *op1, symbol *op2, char op)
     }
   }
 
+  if(op1 -> varType == STRING_TYPE)
+  {
+    if(op2 -> varType == STRING_TYPE)
+    {
+      if(op == '+')
+      {
+        char * res = concat(op1 -> value.string, op2 -> value.string);
+        symbol * r = updateSymbol("_", STRING_TYPE, res);
+        free(res);
+        return r;
+      }
+    }
+  }
   return updateSymbol("_", NULL_TYPE, NULL);
 }
