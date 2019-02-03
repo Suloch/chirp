@@ -81,7 +81,10 @@ double numberPoetic(char *pl)
       i++;
       break;
     }
-    i++;
+    if (pl[i] != '\0')
+    {
+      i++;
+    }
   }
 
   power = 1;
@@ -95,7 +98,10 @@ double numberPoetic(char *pl)
     }
     number = number + count * power;
     power = power / 10;
-    i++;
+    if (pl[i] != '\0')
+    {
+      i++;
+    }
   }
 
   return number;
