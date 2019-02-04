@@ -5,7 +5,7 @@ LIBS = -lfl -lm
 CC = gcc
 CFLAGS = -Wall
 
-.PHONY: default all clean
+.PHONY: default all test clean
 
 default: $(TARGET)
 all: default
@@ -28,8 +28,11 @@ HEADERS = $(wildcard *.h)
 $(TARGET): $(OBJECTS)
 	    $(CC) $(OBJECTS) -Wall $(LIBS) -o $@
 
+test:
+	make -C test test
 
 clean:
 	-rm -f *.o
 	-rm -f $(TARGET)
 	-rm -f lex.yy.c y.tab.c
+	make -C test clean
