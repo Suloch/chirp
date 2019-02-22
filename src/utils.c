@@ -2,6 +2,7 @@
 #include<stdio.h>
 #include<string.h>
 #include<stdlib.h>
+#include <ctype.h>
 #include "utils.h"
 
 
@@ -67,13 +68,28 @@ double numberPoetic(char *pl)
   int count = 0;
   int i = 0;
 
+  while (pl[i] == ' ' || pl[i] == '\t')
+  {
+    i++; /* skip leading whitespace */
+  }
   while(pl[i] != '\0')
   {
     count = 0;
-    while(pl[i] != ' ' && pl[i] != '.' && pl[i] != ',' && pl[i] != '\0')
+
+    while(pl[i] != ' ' && pl[i] != '.' && pl[i] != '\0')
     {
+      if(isalnum(pl[i]))
+      {
+        if(count < 9)
+        {
+          count++;
+        }
+        else
+        {
+          count = 0;
+        }
+      }
       i++;
-      count++;
     }
     number = number * power + count ;
     if(pl[i] == '.')
@@ -81,26 +97,41 @@ double numberPoetic(char *pl)
       i++;
       break;
     }
-    if (pl[i] != '\0')
+    while(pl[i] == ' ' || pl[i] == '\t')
     {
-      i++;
+      i++; /* skip trailing whitespace */
     }
   }
 
+  while (pl[i] == ' ' || pl[i] == '\t')
+  {
+    i++; /* skip leading whitespace */
+  }
   power = 1;
   while(pl[i] != '\0')
   {
     count = 0;
-    while(pl[i] != ' ' && pl[i] != ',' && pl[i] != '\0')
+
+    while(pl[i] != ' ' && pl[i] != '\0')
     {
+      if(isalnum(pl[i]))
+      {
+        if(count < 9)
+        {
+          count++;
+        }
+        else
+        {
+          count = 0;
+        }
+      }
       i++;
-      count++;
     }
-    number = number + count * power;
     power = power / 10;
-    if (pl[i] != '\0')
+    number = number + count * power;
+    while(pl[i] == ' ' || pl[i] == '\t')
     {
-      i++;
+      i++; /* skip trailing whitespace */
     }
   }
 

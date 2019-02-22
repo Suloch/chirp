@@ -38,8 +38,8 @@ int main(int argc, char *argv[])
     test_numberPoetic("  a ab   abc", 123.0);
 
     /* Decimal point tests */
-    test_numberPoetic("x.xx", 1.2);
-    test_numberPoetic("x.xx.xxx", 1.23);
+    test_numberPoetic("x. xx", 1.2);
+    test_numberPoetic("x. xx xxx", 1.23);
 
     /* Punctuation tests */
     test_numberPoetic("ain't", 4.0);
