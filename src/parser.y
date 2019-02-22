@@ -63,7 +63,7 @@ List : Identifier AND List                                                      
 Assignment : PUT Expression INTO Identifier                                     {$$ = makeAssignment($2, $4);}
            | BUILD Identifier UP                                                {$$ = makeIncrement($2);}
            | KNOCK Identifier DOWN                                              {$$ = makeDecrement($2);}
-           | Identifier ASSIGN POETIC_LITERAL                                   {char * s =  concat("", $3); double num = numberPoetic(s); free(s); $$ = makeAssignmentPoetic($1, num);}
+           | Identifier ASSIGN POETIC_LITERAL                                   {$$ = makeAssignmentPoetic($1, numberPoetic($3));}
            ;
 
 Expression : Expression PLUS Expression                                         {$$ = makeExpression($1, '+', $3);}
