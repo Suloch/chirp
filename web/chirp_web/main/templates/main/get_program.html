@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+{%load static%}
+<head>
+  <title>Chirp</title>
+</head>
+<body>
+  <h1>Chirp</h1>
+  <h2>Program Editor</h2>
+  <form class="" action="/main/run/" method="post">
+    <textarea id='program-text' rows="10" cols='80' name="program"></textarea>
+    <br><button type="button" id='submit'>Submit</button>
+  </form>
+  <h2>Output</h2>
+  <textarea id='output' readonly rows="8" cols="80"></textarea>
+</body>
+
+<script src='{% static 'main/js/jquery.js' %}'></script>
+<script src='{% static 'main/js/custom.js' %}'></script>
