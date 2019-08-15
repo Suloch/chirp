@@ -2,17 +2,57 @@
 {%load static%}
 <head>
   <title>Chirp</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-  <h1>Chirp</h1>
-  <h2>Program Editor</h2>
-  <form class="" action="/main/run/" method="post">
-    <textarea id='program-text' rows="10" cols='80' name="program"></textarea>
-    <br><button type="button" id='submit'>Submit</button>
-  </form>
-  <h2>Output</h2>
-  <textarea id='output' readonly rows="8" cols="80"></textarea>
-</body>
+  <h1 class="text-center bg-dark text-white">Chirp   <a href="https://github.com/suloch/chirp/" class="fa fa-github"></a></h1>
+  <div class="row">
+    <div class="jumbotron col-md-7 border border-primary">
+      <h2 class="text-center">Program Editor</h2>
+      <textarea class="form-control" id='program-text' rows="5" cols='80' name="program"></textarea>
+      <button class="btn btn-primary float-right" type="button" id='submit'>Run</button><br>
+      <h2 class="text-center">Output</h2>
+      <textarea id='output' readonly rows="5" cols="80"></textarea>
+    </body>
+  </div>
+  <div class="jumbotron col-md-5 border border-primary">
+    <h2 class="text-center">Example programs</h2>
+    <div class="row">
+      <div class="card-body col-md-5 float-left bg-dark text-white">
+        <h4 class="card-title text-center">The Truth</h4>
+        <p class="card-text">Fibonacci series </p>
+        <button class="btn btn-primary" type="button" id='submit-Fibonacci'>Run</button>
+      </div>
+      <br>
+      <div class="col-md-1"></div>
+      <div class="card-body float-right bg-dark text-white">
+        <h4 class="card-title text-center">The world</h4>
+        <p class="card-text">Factorial of a number</p>
+        <button class="btn btn-primary" type="button" id='submit-Factorial'>Run</button>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="card-body col-md-5 float-left bg-dark text-white">
+        <h4 class="card-title text-center">Midnight</h4>
+        <p class="card-text">Prints 8 modulus 5 using user function</p>
+        <button class="btn btn-primary" type="button" id='submit-Modulus'>Run</button>
+      </div>
+      <br>
+      <div class="col-md-1"></div>
+      <div class="card-body  float-right bg-dark text-white">
+        <h4 class="card-title text-center">Featured</h4>
+        <p class="card-text">nothing here</p>
+        <button disabled class="btn btn-primary" type="button" id='submit-Featured'>Run</button>
+      </div>
+    </div>
+  </div>
 
 <script src='{% static 'main/js/jquery.js' %}'></script>
 <script src='{% static 'main/js/custom.js' %}'></script>

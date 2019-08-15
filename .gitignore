@@ -3,3 +3,5 @@ web/chirp_web/db.sqlite3
 web/chirp_web/main/__pycache__/
 web/chirp_web/main/migrations/
 web/env/
+web/chirp_web/program.rocks
+web/chirp_web/chirp
