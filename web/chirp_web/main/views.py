@@ -9,7 +9,7 @@ def run(request):
             file = open('./program.rocks', 'w+')
             file.write(program)
             file.close()
-            args = ('chirp', 'program.rocks')
+            args = ('./chirp', 'program.rocks')
             popen = subprocess.Popen(args, stdout=subprocess.PIPE)
             popen.wait()
             output = popen.stdout.read()
