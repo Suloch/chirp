@@ -56,8 +56,10 @@ lesserEqual low|less|small|weak
 <Condition>is\ {lesser}\ than                                 {BEGIN(INITIAL); i = 0; return LESS_THAN;}
 <Condition>is\ as\ {greaterEqual}\ as                         {BEGIN(INITIAL); i = 0; return MORE_EQUALS;}
 <Condition>is\ as\ {lesserEqual}\ as                          {BEGIN(INITIAL); i = 0; return LESS_EQUALS;}
+<Condition>"\'s"                                              {unput('s'); unput('i');}
 {assign}                                                      {BEGIN(Poetic); return ASSIGN;}
 and                                                           {return AND;}
+"\'s"                                                         {unput('s'); unput('i');}
 "Take it to the top"                                          {return CONTINUE;}
 "Break it down"                                               {return BREAK;}
 Give                                                          {return GIVE;}
