@@ -1,1 +1,6 @@
 language: c
+os: linux
+script:
+  - cd src
+  - make clean
+  - make
