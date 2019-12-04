@@ -1,3 +1,4 @@
+ ![build status](https://api.travis-ci.org/Suloch/chirp.svg?branch=master)
 # chirp
 chirp stands for **chirping Interpreter for Rockstar programming**. It is an
 interpreter written in C using flex and yaac for [rockstar language](https://github.com/dylanbeattie/rockstar).
