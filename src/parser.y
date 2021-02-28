@@ -11,6 +11,8 @@
   #include "AST.h"
 
   extern FILE *yyin;
+  extern int yylineno; /* for error reporting */
+  extern char *yytext; /* for error reporting */
   int cmd = 1;
   void success();
   void deleteTable();
@@ -126,7 +128,7 @@ int main(int argc, char **argv)
 
 void yyerror(char *s)
 {
-  fprintf(stderr, "%s\n", s);
+  fprintf(stderr, "%s on line %d at %s\n", s, yylineno, yytext);
 }
 
 void success(void)
