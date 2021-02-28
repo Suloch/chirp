@@ -6,6 +6,8 @@
   int i = 0;
 %}
 
+%option noinput
+
 %s FindCommonIdentifier
 %x FindProperIdentifier
 %x Comments
