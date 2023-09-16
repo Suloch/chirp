@@ -6,6 +6,8 @@
   int i = 0;
 %}
 
+%option noinput
+
 %s FindCommonIdentifier
 %x FindProperIdentifier
 %x Comments
@@ -86,7 +88,7 @@ down                                                          {return DOWN;}
 {StartCommonIdentifier}\                                      {yylval.string = strdup(yytext); BEGIN(FindCommonIdentifier); return FIND_COMMON_IDENTIFIER;}
 {UpperCase}{Letter}*                                          {yylval.string = strdup(yytext); return PROPER_IDENTIFIER;}
 <FindCommonIdentifier>{LowerCase}+                            {yylval.string = strdup(yytext); if(i == 1){BEGIN(Condition);}else{BEGIN(INITIAL);} return COMMON_IDENTIFIER;}
-[\n]                                                          {return NL;}
+[\n]                                                          {yylineno++; return NL;}
 [,]                                                           {return COMMA;}
 .                                                             ;
 
