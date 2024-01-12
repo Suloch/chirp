@@ -9,7 +9,7 @@
 symbol *table[LENGTH];
 
 int literalCount = 0;
-
+char *lastSymbol;
 
 
 void updateLastSymbol(char *varName)
