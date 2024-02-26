@@ -30,7 +30,7 @@ typedef struct symbol
 }symbol;
 
 
-char *lastSymbol;
+extern char *lastSymbol;
 
 void initializeTable(void);
 symbol *addSymbol(char *, int, void *);
